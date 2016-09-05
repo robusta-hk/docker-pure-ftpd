@@ -47,6 +47,7 @@ VOLUME /home/ftpusers
 
 # startup
 CMD /usr/sbin/pure-ftpd -c 50 -C 10 -l puredb:/etc/pure-ftpd/pureftpd.pdb -E -j -R -P $PUBLICHOST -p 30000:30009
-
+RUN pure-pw useradd bob:bob -u ftpuser -d /home/ftpusers/bob
+RUN pure-pw mkdb
 EXPOSE 21 30000-30009
 
